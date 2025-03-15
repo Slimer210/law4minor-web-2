@@ -26,8 +26,6 @@
     {@render children()}
 </main>
 
-
-
 <footer class="text-primary-text flex flex-row p-10 border-t-1 border-t-primary/20">
     <p class="flex-grow tracking-wide text-md">&copy; 2024-2025 Law4Minor (P12356). All Rights Reserved.</p>
     <div class="flex flex-row gap-3 tracking-wider uppercase font-light">
