@@ -410,20 +410,24 @@
     }
   }
 
+  .navlink a {
+    @apply text-primary/70 text-base h-fit hover:text-primary font-normal duration-200
+  }
+
 html {
     @apply bg-black text-primary
 }
 
 h1 {
-    @apply text-4xl
+    @apply text-5xl
 }
 
 h2 {
-    @apply text-3xl
+    @apply text-4xl
 }
 
 h3 {
-    @apply text-2xl
+    @apply text-3xl
 }
 
 h4 {
@@ -438,13 +442,57 @@ a, p, div {
 }
 
 .button-primary {
-    @apply bg-black text-primary px-6 py-3 border-1 rounded-full w-fit hover:bg-primary hover:text-black uppercase tracking-wide font-light duration-200 cursor-auto flex flex-row items-center gap-4
+    @apply bg-black text-primary font-medium px-6 py-3 border-1 rounded-full w-fit hover:bg-primary hover:text-black uppercase tracking-wider duration-200 cursor-pointer flex flex-row items-center gap-4
+}
+
+.button-accent {
+    @apply bg-primary text-black font-medium px-6 py-3 border-1 rounded-full w-fit hover:bg-primary-text uppercase tracking-wider duration-200 cursor-pointer flex flex-row items-center gap-4
 }
 
 p {
-    @apply text-xl text-justify
+    @apply text-xl text-justify leading-snug
 }
 
 .statistics {
-    @apply grid grid-rows-1 grid-cols-3
+    @apply flex flex-row gap-6
+}
+
+.statistics ul li:first-child {
+    @apply text-4xl font-bold text-primary tracking-widest
+}
+
+.statistics ul li:last-child {
+    @apply text-xl font-normal text-primary-text
+}
+
+.features {
+   @apply grid grid-cols-1 gap-8
+}
+
+.feature-card {
+    @apply flex flex-col gap-2 border border-primary/50 rounded-xl p-8 bg-gradient-to-br from-primary/15 to-primary/25
+}
+
+.feature-card h2 {
+  @apply inline-flex items-center tracking-wide gap-4
+}
+
+.feature-card p {
+  @apply text-primary-text font-normal text-lg
+}
+
+.article-list {
+  @apply grid grid-cols-3 gap-8
+}
+
+.article-card {
+    @apply flex flex-col gap-4 border border-primary/50 rounded-xl p-8 bg-gradient-to-br from-primary/15 to-primary/25
+}
+
+.article-card span {
+  @apply flex flex-row gap-2 
+}
+
+.article-card img {
+  @apply aspect-square
 }
