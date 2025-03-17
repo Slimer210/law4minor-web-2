@@ -48,14 +48,58 @@
     {@render children()}
 </main>
 
-<footer class="text-primary-text flex flex-col tablet:flex-row text-center tablet:text-left p-10 border-t-1 border-t-primary/20">
-    <p class="flex-grow tracking-wide text-md text-center tablet:text-left">&copy; 2024-2025 Law4Minor (P12356). All Rights Reserved.</p>
-    <br />
-    <div class="flex flex-row gap-3 tracking-wider uppercase font-light">
-        <a href="/terms-of-service">Terms of Service</a>
-        <div>|</div>
-        <a href="/privacy-policy">Privacy Policy</a>
+<footer class="text-primary-text flex flex-col tablet:flex-row text-center tablet:text-left px-8 pt-8 tablet:px-24 tablet:pt-24 w-full">
+    <div class="bg-black grid grid-cols-1 tablet:grid-cols-5 gap-8 mobile:gap-12 tablet:gap-24">
+        <div class="col-span-1 tablet:col-span-2 space-y-8"> 
+            <h3 class="text-xl text-white inline-flex gap-4 items-center"><img src="/favicon.png" alt="Logo" class="h-8"/>Law4Minor</h3>
+            <p class="text-sm !text-center tablet:!text-left">Law4Minor is a non-profit organization dedicated to advocating for the rights of minorities in the legal profession.</p>
+            <div>
+                <span class="uppercase text-lg text-primary/50 tracking-widest">Follow Us</span>
+                <div class="flex space-x-6 py-4 text-primary justify-center tablet:justify-start">
+                    <a href="https://www.facebook.com/law4minor/" target="_blank" class="rounded-full bg-primary/20 p-4 shadow-lg"><Icon icon="ion:logo-facebook" width="32" height="32"></Icon></a>
+                    <a href="https://www.instagram.com/law4minor/" target="_blank" class="rounded-full bg-primary/20 p-4 shadow-lg"><Icon icon="ion:logo-instagram" width="32" height="32"></Icon></a>
+                </div>
+            </div>
+        </div>
+        <div class="space-y-6">
+            <h3>Explore</h3>
+            <ul class="space-y-4 text-lg">
+                <li>Home</li>
+                <li>Events</li>
+                <li>Articles</li>
+            </ul>
+        </div>
+        <div class="space-y-6">
+            <h3>More Pages</h3>
+            <ul class="space-y-4 text-lg">
+                <li>Terms of Service</li>
+                <li>Privacy Policy</li>
+                <li>Site Status</li>
+            </ul>
+        </div>
+        <div class="space-y-6">
+            <h3 class="text-xl text-white">Contact Us</h3>
+            <div class="flex flex-row gap-2 justify-center tablet:justify-start">
+                <Icon icon="ion:mail-outline" width="24" height="24"></Icon>
+                <a href="mailto:law4minor@example.com">law4minor@example.com</a>
+            </div>
+            <div class="flex flex-row gap-2 justify-center tablet:justify-start">
+                <Icon icon="ion:call-outline" width="24" height="24"></Icon>
+                <a href="tel:123-456-7890">123-456-7890</a>
+        </div>
+        <div>
 
+        </div>
     </div>
+    <div class="w-full col-span-1 tablet:col-span-5 flex flex-col tablet:flex-row border-t-1 border-primary/50 py-5 gap-5">
+        <p class="flex-grow tracking-wide !text-sm !text-center tablet:!text-left">&copy; 2024-2025 Law4Minor (P12356). All Rights Reserved.</p>
+        <div class="space-x-5 hidden tablet:inline-flex flex-col tablet:flex-row tracking-wider uppercase font-light">
+            <a href="/terms-of-service">Terms of Service</a>
+            <div class="hidden tablet:inline"> | </div>
+            <a href="/privacy-policy">Privacy Policy</a>
+    
+        </div>
+    </div>
+    
     
 </footer>
