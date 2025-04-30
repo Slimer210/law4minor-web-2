@@ -503,7 +503,7 @@ p {
 }
 
 .article-card {
-    @apply flex flex-col gap-4 border border-primary/50 rounded-xl p-4 mobile:p-8 bg-gradient-to-br from-primary/15 to-primary/25 text-center mobile:text-left
+    @apply flex flex-col gap-4 border border-primary/10 rounded-xl p-4 mobile:p-8 bg-gradient-to-br from-primary/5 to-primary/15 text-center mobile:text-left
 }
 
 .article-card span {
@@ -514,10 +514,26 @@ p {
   @apply aspect-square
 }
 
-.article-card button {
-  @apply self-center mobile:self-baseline
+.hero {
+  @apply text-center items-center bg-[url(./media/hero.webp)] bg-dark bg-cover bg-center tablet:bg-top bg-blend-multiply
 }
 
-.hero {
-  @apply text-center items-center bg-[url(./media/people.jpg)] bg-dark bg-cover bg-center tablet:bg-top bg-blend-multiply
+.event-list {
+  @apply grid grid-cols-1 tablet:grid-cols-3 gap-8
+}
+
+.event-card {
+  @apply flex flex-col border border-primary/20 rounded-xl bg-gradient-to-br from-primary/5 to-primary/15 text-center mobile:text-left
+}
+
+.event-card span {
+  @apply flex flex-col mobile:flex-row gap-2 items-center
+}
+
+.event-card img {
+  @apply aspect-square rounded-b-none
+}
+
+.event-card button {
+  @apply self-center mobile:self-baseline
 }

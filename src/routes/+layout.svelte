@@ -1,41 +1,61 @@
 <script lang="ts">
     import Icon from "@iconify/svelte";
-	let { children } = $props();
+    import{fade,fly} from "svelte/transition"
     import "../app.css";
 
-    let isMobileMenuOpen = false;
+    import type { PageProps } from './$types';
+    let { onclick,data,children } = $props();
+
+    // Mobile Menu Toggler
+    let isMobileMenuOpen = $state(false)
     function toggleMobileMenu() {
-        console.log("Toggling" + isMobileMenuOpen)
         isMobileMenuOpen = !isMobileMenuOpen;
+        console.log(isMobileMenuOpen)
     }
+
+    const pages = [
+        { title: "Home", link:"/"},
+        { title: "About Us", link:"/about"},
+        { title: "Articles", link:"/articles"},
+        { title: "Events", link:"/events"},
+        { title: "Contact Us", link:"/contact"},
+    ]
+
+
 </script>
 
-<nav class="flex flex-row w-screen text-primary h-18 p-8 items-center shadow-lg border-b-1 border-b-primary/20 fixed top-0 left-0 backdrop-blur-2xl backdrop-brightness-50">
+<svelte:head>
+    <title>Law4Minor</title>
+</svelte:head>
+
+<nav class="flex flex-row w-screen text-primary h-18 p-8 items-center shadow-lg border-b-1 border-b-primary/20 fixed top-0 left-0 backdrop-blur-2xl backdrop-brightness-50 z-50">
     <a class="flex flex-row h-8 flex-grow gap-2 items-center" href="/">
         <img src="/favicon.png" alt="Logo" class="h-8"/>
         <h2 class="!text-xl !font-semibold">Law4Minor<span class="p-2 mx-4 bg-primary-text/20 border border-primary/50 rounded-sm text-sm font-normal">BETA</span></h2>
     </a>
     <div class="navlink flex-row hidden tablet:flex gap-12 uppercase tracking-widest">
-        <a href="/">Home</a>
-        <a href="/about">About Us</a>
-        <a href="/articles">Articles</a>
-        <a href="/events">Events</a>
-        <a href="/contact">Contact Us</a>
+        {#each pages as page}
+            <a class="text-sm" href={page.link}>{page.title}</a>
+            <meta title={page.title} />
+        {/each}
     </div>
-    <button class="block tablet:hidden p-2 bg-primary-text/20 border border-primary-text/50 rounded-lg" onclick={() => toggleMobileMenu()} aria-expanded="false" aria-controls="mobile-menu">
+    <button onclick={toggleMobileMenu} class="block tablet:hidden p-2 bg-primary-text/20 border border-primary-text/50 rounded-lg menu-toggle" aria-controls="mobile-menu">
         <Icon icon="mingcute:menu-fill" width="24" height="24"></Icon>
     </button>
-    {#if isMobileMenuOpen}
-        <div class="fixed top-16 left-0 w-screen h-screen bg-black" aria-label="mobile menu">
+    {#if isMobileMenuOpen }
+        <div in:fly out:fly class="fixed top-16 left-0 w-screen h-screen bg-black" aria-label="Mobile menu" aria-expanded={isMobileMenuOpen}>
             <div class="navlink mobile-menu flex flex-col items-center justify-center h-4/5 gap-12 uppercase tracking-widest">
-                <a href="/">Home</a>
-                <a href="/about">About Us</a>
-                <a href="/articles">Articles</a>
-                <a href="/events">Events</a>
-                <a href="/contact">Contact Us</a>
+                <a onclick={toggleMobileMenu} href="/">Home</a>
+                <a onclick={toggleMobileMenu} href="/about">About Us</a>
+                <a onclick={toggleMobileMenu} href="/articles">Articles</a>
+                <a onclick={toggleMobileMenu} href="/events">Events</a>
+                <a onclick={toggleMobileMenu} href="/contact">Contact Us</a>
             </div>
         </div>
     {/if}
+    
+
+    
     
 	
 </nav>
@@ -44,7 +64,7 @@
 
 </style>
 
-<main class="flex flex-col min-h-screen mt-24 max-w-desktop m-auto">
+<main class="flex flex-col min-h-screen mt-18 max-w-desktop m-auto">
     {@render children()}
 </main>
 

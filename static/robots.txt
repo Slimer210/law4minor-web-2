@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /dashboard/
+
+# Allow search engines to crawl everything else
+Allow: /
+
+# Optional: Prevent search engines from indexing certain file types
+Disallow: /*.json$
+Disallow: /*.log$
+
+# Optional: Sitemap
+Sitemap: https://yourdomain.com/sitemap.xml

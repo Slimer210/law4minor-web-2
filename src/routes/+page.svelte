@@ -1,9 +1,32 @@
 <script>
     import Icon from "@iconify/svelte";
-    import Sdg16 from "../media/sdg16.svg"
+
+    const demoBlog = [
+        {
+            title: "Demo Blog",
+            date: "July 15, 2023",
+            author: "John Doe",
+            image_permalink: "src/media/home-1.webp",
+            post_permalink: "src/media/home-1.webp"
+        },
+        {
+            title: "Demo Blog",
+            date: "July 15, 2023",
+            author: "John Doe",
+            image_permalink: "src/media/home-1.webp",
+            post_permalink: "src/media/home-1.webp"
+        },
+        {
+            title: "Demo Blog",
+            date: "July 15, 2023",
+            author: "John Doe",
+            image_permalink: "src/media/home-1.webp",
+            post_permalink: "src/media/home-1.webp"
+        }
+    ]
 </script>
 
-<section class="p-8 mobile:p-16 flex flex-col tablet:flex-row gap-8 items-center text-center mobile:text-left">
+<section class="p-8 mobile:p-16 flex flex-col gap-8 tablet:flex-row items-center text-center mobile:text-left">
     <h1 class="!text-5xl mobile:!text-6xl w-full tablet:w-1/2 leading-none mobile:leading-20">What We Care:<br />Addressing The Rise of Juvenile Delinquency</h1>
     <div class="w-full tablet:w-1/2 flex flex-col gap-8 text-left">
         <p class="text-lg">At Law4Minor, we tackle the root causes head-on, taking urgent action through education and awareness—empowering at-risk youth to find support, belonging, and a brighter future.</p>
@@ -14,8 +37,8 @@
 <section class="p-8 mobile:p-16 flex flex-col gap-8 ">
     <h1 class="text-center mobile:text-left">What We Do?</h1>
     <div class="flex flex-col tablet:flex-row gap-16">
-        <div class="w-full tablet:w-1/2">
-            <img src="./placeholder.jpg" class="rounded-xl h-auto" alt="placeholder"/>
+        <div class="w-full tablet:w-1/2 flex-1">
+            <img src="src/media/home-1.webp" class="rounded-xl" alt="placeholder"/>
         </div>
         <div class="w-full tablet:w-1/2 flex flex-col gap-8">
             <p>According to the Department of Statistics Malaysia (DOSM), the number of offences involving minors increased from year to year. At Law4Minor, we aim to target the underlying cause, focusing our urgent action towards education and awareness to help at-risk youth find community.</p>
@@ -90,17 +113,18 @@
     <p class="text-center mobile:text-justify">We are proud of our work, and we are always looking for new challenges. Take a look at some of our recent articles:</p>
     <button class="button-primary self-center mobile:self-baseline">Read More<Icon icon="material-symbols:arrow-right-alt-rounded" width="24" height="24" /></button>
     <div class="article-list">
-        <div class="article-card">
-            <img src="./placeholder.jpg" class="rounded-xl h-auto" alt="placeholder" />
-            <h3>Online Engagement</h3>
-            <span class="text-center m-auto mobile:m-0">
-                    <Icon icon="icon-park-solid:calendar" width="18" height="18"/> April 12, 2023 
-                    <br />
-                    <Icon icon="icon-park-solid:people" width="18" height="18" /> CUTE BOI WRITER      
-            </span>
-            <p class="text-primary-text font-normal !text-sm">Through engaging and informative legal summaries and witty reels on our Instagram page, you can learn you can lear you can lear you can lear you can lear you can lear...</p>
-            <button class="button-accent">Read More<Icon icon="material-symbols:arrow-right-alt-rounded" width="24" height="24" /></button>
-        </div>
+        {#each demoBlog as article}
+            <div class="article-card">
+                <img src={article.image_permalink} class={`rounded-xl h-auto bg-cover aspect-square w-full bg-[url(${article.image_permalink})]`} alt="placeholder" />
+                <h3>{article.title}</h3>
+                <span class="text-center m-auto mobile:m-0">
+                        <div><Icon icon="icon-park-solid:calendar" width="18" height="18" class="inline"/> April 12, 2023</div>
+                        <div><Icon icon="icon-park-solid:people" width="18" height="18" class="inline"/> CUTE BOI WRITER   </div>   
+                </span>
+                <p class="text-primary-text font-normal !text-sm">Through engaging and informative legal summaries and witty reels on our Instagram page, you can learn you can lear you can lear you can lear you can lear you can lear...</p>
+                <a class="button-accent self-center mobile:self-start w-full mobile:w-auto" href={article.post_permalink}>Read More<Icon icon="material-symbols:arrow-right-alt-rounded" width="24" height="24" /></a>
+            </div>
+        {/each} 
     </div>
 
 </section>
