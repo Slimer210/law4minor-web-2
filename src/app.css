@@ -511,7 +511,19 @@ p {
 }
 
 .article-card img {
-  @apply aspect-square
+  @apply aspect-[3/2]
+}
+
+.featured-article * {
+  @apply !text-white
+}
+
+.featured-article span {
+  @apply !text-primary-text text-sm
+}
+
+.featured-article p {
+  @apply font-bold
 }
 
 .hero {
@@ -536,4 +548,20 @@ p {
 
 .event-card button {
   @apply self-center mobile:self-baseline
+}
+
+article * {
+  @apply mb-5
+}
+
+article p {
+  @apply text-primary font-normal 
+}
+
+article figure img {
+  @apply m-auto max-w-2xl rounded-xl
+}
+
+article figure figcaption {
+  @apply text-center italic my-2
 }
