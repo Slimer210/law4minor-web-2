@@ -1,1 +1,1 @@
-<p class="text-primary-text font-normal !text-sm"><slot/></p>
+<p class="text-primary-text font-normal !text-sm tracking-normal !text-left "><slot/></p>

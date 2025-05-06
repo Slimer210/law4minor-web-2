@@ -442,10 +442,6 @@ h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-primary
 }
 
-p, div {
-    @apply text-primary
-}
-
 .button-primary {
     @apply bg-black text-primary font-medium px-6 py-3 border-1 rounded-full w-fit hover:bg-primary hover:text-black uppercase tracking-wider duration-200 cursor-pointer flex flex-row items-center gap-4
 }
@@ -509,10 +505,6 @@ p {
 
 .featured-article p {
   @apply font-bold
-}
-
-.hero {
-  @apply text-center items-center bg-[url(./media/hero.webp)] bg-dark bg-cover bg-center tablet:bg-top bg-blend-multiply
 }
 
 .event-list {

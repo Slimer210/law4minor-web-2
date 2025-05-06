@@ -2,18 +2,45 @@
 	import Icon from "@iconify/svelte";
     import type { Article } from "$lib/models/models";
     import type { PageServerData } from './$types';
+    import { onMount } from "svelte";
     export let data: PageServerData;
-
-    console.log(data)
 
     let article_content={"innerHTML":""};
     article_content.innerHTML = data.blogPost.content;
+
+    let articleSection: HTMLDivElement;
+
+    onMount(() => {
+        const scrollActivity = (e: { deltaY: number; preventDefault: () => void; }) => {
+            const atTop = articleSection.scrollTop === 0;
+            const atBottom = articleSection.scrollTop + articleSection.clientHeight >= articleSection.scrollHeight;
+
+            if ((atTop && e.deltaY < 0) || (atBottom && e.deltaY > 0)) {
+                if (articleSection.parentElement) {
+                    articleSection.parentElement.scrollBy({
+                        top: e.deltaY,
+                        behavior: 'auto'
+                    });
+                }
+
+                e.preventDefault();
+            }
+        };
+        articleSection.addEventListener("wheel", scrollActivity, {passive:false});
+    return()=>{
+        articleSection.removeEventListener("wheel", scrollActivity);
+    };
+    });
+
+    
+
+
 
 </script>
 
 
 <section class="p-8 mobile:p-16 items-center text-center mobile:text-left">
-	<p class="text-lg uppercase tracking-widest">Your life is good enough if you dont touch programming</p>
+	<p class="text-lg uppercase tracking-widest">{data.blogPost.title}</p>
     <h1 class="!text-4xl mobile:!text-6xl w-full leading-none mobile:leading-20 tracking-wide">{data.blogPost.title}</h1>    
 </section>  
 <section class="p-8 mobile:p-16 text-center mobile:text-left w-full h-auto flex flex-row items-center">
@@ -51,7 +78,7 @@
             </div>
         </div>
     </div>
-    <article class="flex-grow prose w-full max-w-full overflow-hidden">
+    <article bind:this={articleSection} class="flex-grow prose w-full max-w-full overflow-hidden">
         {@html data.blogPost.content}
     </article>
 </section>

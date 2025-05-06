@@ -5,5 +5,5 @@
     export let href = '';
 </script>
 
-<Button type="accent" className="self-center mobile:self-start w-full mobile:w-auto" href={href}><slot/></Button>
+<Button type="accent" className="self-center mobile:self-start mobile:w-auto" href={href}><slot/></Button>
 

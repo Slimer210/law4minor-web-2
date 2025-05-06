@@ -10,6 +10,9 @@
     
     import Icon from "@iconify/svelte";
     import Button from "$lib/components/element/button.svelte";
+    import HeroContainer from "$lib/components/hero/HeroContainer.svelte";
+    import HeroContent from "$lib/components/hero/HeroContent.svelte";
+    import { HeroButton, HeroTitle } from "$lib/components/hero";
 
     const demoBlog = [
         {
@@ -133,13 +136,10 @@
             </ArticleCard>
         {/each}
     </div>
-
-    
-
 </section>
 
-<section class="hero p-8 mobile:p-16 flex flex-col gap-8">
-    <h1>Ready to Join Us?</h1>
-    <p>Take a deep dive of how we work, and how can you bring an impact for the society!</p>
-    <Button type="accent">Join Us Now</Button>
-</section>
+<HeroContainer>
+    <HeroTitle>Ready to Join Us?</HeroTitle>
+    <HeroContent>Take a deep dive of how we work, and how can you bring an impact for the society!</HeroContent>
+    <HeroButton>Join Us Now</HeroButton>
+</HeroContainer>
