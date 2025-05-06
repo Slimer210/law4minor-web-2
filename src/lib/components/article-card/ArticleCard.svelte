@@ -1,0 +1,1 @@
+<div class="flex flex-col gap-4 border border-primary/10 rounded-xl p-4 mobile:p-8 bg-gradient-to-br from-primary/5 to-primary/15 text-center mobile:text-left"><slot/></div>

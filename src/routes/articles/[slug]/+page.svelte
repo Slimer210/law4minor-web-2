@@ -41,11 +41,17 @@
     </div>
 </section>
 
-<section class="p-8 mobile:p-16 text-center mobile:text-left w-full h-auto flex flex-row items-center">
-    <div class="flex flex-col w-sm gap-4 !text-white">
-        <span>Reading time: 3 mins</span>
+<section class="p-8 mobile:p-16 text-center mobile:text-left w-full h-screen flex flex-col md:flex-row items-start overflow-scroll">
+    <div class="flex flex-col w-full w-md gap-4 text-white items-start h-content sticky top-5 mx-2">
+        <span class="uppercase tracking-wider">Reading time: 3 mins</span>
+        <div class="w-full">
+            <div class="flex hover:bg-primary/10 rounded-lg py-3 px-8 w-full">
+                <span class="flex-grow text-white">Getting Started</span>
+                <Icon icon="ri:arrow-right-s-line" class="text-2xl text-gray-500" />
+            </div>
+        </div>
     </div>
-    <article class="flex-grow prose w-auto">
+    <article class="flex-grow prose w-full max-w-full overflow-hidden">
         {@html data.blogPost.content}
     </article>
 </section>

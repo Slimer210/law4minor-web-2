@@ -1,0 +1,1 @@
+<p class="text-primary-text font-normal !text-sm"><slot/></p>

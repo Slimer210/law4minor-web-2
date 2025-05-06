@@ -442,8 +442,8 @@ h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-primary
 }
 
-a, p, div {
-    @apply text-primary-text
+p, div {
+    @apply text-primary
 }
 
 .button-primary {
@@ -498,21 +498,6 @@ p {
   @apply text-primary-text font-normal text-lg text-left
 }
 
-.article-list {
-  @apply grid grid-cols-1 tablet:grid-cols-3 gap-8
-}
-
-.article-card {
-    @apply flex flex-col gap-4 border border-primary/10 rounded-xl p-4 mobile:p-8 bg-gradient-to-br from-primary/5 to-primary/15 text-center mobile:text-left
-}
-
-.article-card span {
-  @apply flex flex-col mobile:flex-row gap-2 items-center
-}
-
-.article-card img {
-  @apply aspect-[3/2]
-}
 
 .featured-article * {
   @apply !text-white
@@ -564,4 +549,9 @@ article figure img {
 
 article figure figcaption {
   @apply text-center italic my-2
+}
+
+
+article h2 {
+  @apply sticky top-20
 }

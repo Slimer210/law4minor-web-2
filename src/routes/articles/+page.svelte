@@ -1,10 +1,8 @@
 <script lang="ts">
     import Icon from "@iconify/svelte";
-    import type { Article } from "$lib/models/models";
     import type { PageServerData } from './$types';
+    import { ArticleButton, ArticleCard, ArticleContent, ArticleImage, ArticleInfo, ArticleTitle } from "$lib/components/article-card";
     export let data: PageServerData;
-    import { register } from 'swiper/element/bundle';
-    register();
 </script>
 
 <section class="p-8 mobile:p-16 space-y-4 items-center text-center mobile:text-left">
@@ -12,7 +10,7 @@
     <p class="text-lg">At Law4Minor, we tackle the root causes head-on, taking urgent action through education and awareness—empowering at-risk youth to find support, belonging, and a brighter future.</p>
 </section>   
 <section class="p-8 mobile:p-16 space-y-4 text-center mobile:text-left w-full h-auto flex flex-row items-center">
-    <div class="hidden tablet:block featured-article relative w-full tablet:w-3/4 h-auto aspect-video bg-cover m-auto rounded-xl bg-[url('src/media/home-1.webp')]">
+    <div class="hidden tablet:block featured-article relative w-full tablet:w-3/4 h-auto aspect-video bg-cover m-auto rounded-xl bg-[url('src/media/home-1.webp')]" >
         <div class="absolute bottom-0 left-0 w-full p-8 pt-24 space-y-4 bg-gradient-to-t from-black/80 to-black/0 text-white">
             <span class="text-primary font-light uppercase tracking-wider">Can you really sue?</span>
             <h2 class="tracking-wide">Can You Really Sue Over Burger Sizes? </h2>
@@ -41,21 +39,16 @@
         <h2 class="flex-grow">All Posts</h2>
         <input type="text" placeholder="Search.." class="py-4 px-8 bg-primary-text/30 rounded-full active:bg-white">
     </div>
-    <div class="article-list">
+    <div class="grid grid-cols-1 tablet:grid-cols-3 gap-8">
         {#each data.demoBlog as article}
-            <div class="article-card">
-                <img src={article.image_permalink} class={`rounded-xl h-auto bg-cover aspect-video w-full bg-[url(${article.image_permalink})]`} alt="placeholder" />
-                <h3>{article.title}</h3>
-                <span class="text-center m-auto mobile:m-0">
-                        <Icon icon="icon-park-solid:calendar" width="18" height="18" class="inline"/> {article.date_published} 
-                        <br />
-                        <Icon icon="icon-park-solid:people" width="18" height="18" class="inline" /> {article.author.name}     
-                </span>
-                <p class="text-primary-text font-normal !text-sm">{article.excerpt}</p>
-                <a class="button-accent self-center mobile:self-auto" href={article.post_permalink}>Read More<Icon icon="material-symbols:arrow-right-alt-rounded" width="24" height="24" /></a>
-            </div>
+            <ArticleCard>
+                <ArticleImage src={article.image_permalink} />
+                <ArticleTitle>{article.title}</ArticleTitle>
+                <ArticleInfo date={article.date_published} author={article.author.name}/>
+                <ArticleContent>{article.excerpt}</ArticleContent>
+                <ArticleButton href={article.post_permalink}>Read More</ArticleButton>
+            </ArticleCard>
         {/each}
-            
     </div>
 </section>
 

@@ -1,5 +1,15 @@
 <script>
+    import {
+        ArticleButton, 
+        ArticleCard, 
+        ArticleImage, 
+        ArticleTitle, 
+        ArticleInfo,
+        ArticleContent,
+    } from "$lib/components/article-card";
+    
     import Icon from "@iconify/svelte";
+    import Button from "$lib/components/element/button.svelte";
 
     const demoBlog = [
         {
@@ -30,7 +40,7 @@
     <h1 class="!text-5xl mobile:!text-6xl w-full tablet:w-1/2 leading-none mobile:leading-20">What We Care:<br />Addressing The Rise of Juvenile Delinquency</h1>
     <div class="w-full tablet:w-1/2 flex flex-col gap-8 text-left">
         <p class="text-lg">At Law4Minor, we tackle the root causes head-on, taking urgent action through education and awareness—empowering at-risk youth to find support, belonging, and a brighter future.</p>
-        <button class="button-primary self-center mobile:self-baseline">Read More<Icon icon="material-symbols:arrow-right-alt-rounded" width="24" height="24" /></button>
+        <Button>Read More</Button>
     </div>
 </section>
 
@@ -56,7 +66,7 @@
                     <li>Instagram Likes</li>
                 </ul>
             </span>
-            <button class="button-primary self-center mobile:self-baseline">Read Our Story<Icon icon="material-symbols:arrow-right-alt-rounded" width="24" height="24" /></button>
+            <Button>Read Our Story</Button>
         </div>
     </div>
 </section>
@@ -65,8 +75,8 @@
     <div class="w-full tablet:w-1/2 flex flex-col gap-8">
         <h1 class="text-8xl text-center mobile:text-left">Our Programs and Resources</h1>
         <p>At Law4Minor, you can understand more about the law with our quick summaries, long articles, and informative videos.</p>
-        <button class="button-primary self-center mobile:self-baseline">Read our Articles<Icon icon="material-symbols:arrow-right-alt-rounded" width="24" height="24" /></button>
-        <button class="button-accent self-center mobile:self-baseline">Join our Events<Icon icon="material-symbols:arrow-right-alt-rounded" width="24" height="24" /></button>
+        <Button>Read Our Articles</Button>
+        <Button type="accent">Join Our Events</Button>
     </div>
     <div class="features w-full tablet:w-1/2">
         <div class="feature-card">
@@ -105,32 +115,31 @@
             </span>
         </span>
     </div>
-    <button class="button-accent m-auto self-center mobile:self-baseline">Join Us. Make a Difference. <Icon icon="material-symbols:arrow-right-alt-rounded" width="24" height="24" /></button>
+    <Button type="accent" className="self-center">Join Us. Make A Difference.</Button>
 </section>
 
 <section class="p-8 mobile:p-16 flex flex-col gap-8">
     <h1 class="text-center mobile:text-left">Latest Articles & Posts</h1>
     <p class="text-center mobile:text-justify">We are proud of our work, and we are always looking for new challenges. Take a look at some of our recent articles:</p>
-    <button class="button-primary self-center mobile:self-baseline">Read More<Icon icon="material-symbols:arrow-right-alt-rounded" width="24" height="24" /></button>
-    <div class="article-list">
+    <Button>Read More</Button>
+    <div class="grid grid-cols-1 tablet:grid-cols-3 gap-8">
         {#each demoBlog as article}
-            <div class="article-card">
-                <img src={article.image_permalink} class={`rounded-xl h-auto bg-cover aspect-square w-full bg-[url(${article.image_permalink})]`} alt="placeholder" />
-                <h3>{article.title}</h3>
-                <span class="text-center m-auto mobile:m-0">
-                        <div><Icon icon="icon-park-solid:calendar" width="18" height="18" class="inline"/> April 12, 2023</div>
-                        <div><Icon icon="icon-park-solid:people" width="18" height="18" class="inline"/> CUTE BOI WRITER   </div>   
-                </span>
-                <p class="text-primary-text font-normal !text-sm">Through engaging and informative legal summaries and witty reels on our Instagram page, you can learn you can lear you can lear you can lear you can lear you can lear...</p>
-                <a class="button-accent self-center mobile:self-start w-full mobile:w-auto" href={article.post_permalink}>Read More<Icon icon="material-symbols:arrow-right-alt-rounded" width="24" height="24" /></a>
-            </div>
-        {/each} 
+            <ArticleCard>
+                <ArticleImage src={article.image_permalink} />
+                <ArticleTitle>{article.title}</ArticleTitle>
+                <ArticleInfo date="1/2/2023" author="CUTE BOI WQRITER"/>
+                <ArticleContent>Through engaging and informative legal summaries and witty reels on our Instagram page, you can learn you can lear you can lear you can lear you can lear you can lear...</ArticleContent>
+                <ArticleButton href={article.post_permalink}>Read More</ArticleButton>
+            </ArticleCard>
+        {/each}
     </div>
+
+    
 
 </section>
 
 <section class="hero p-8 mobile:p-16 flex flex-col gap-8">
     <h1>Ready to Join Us?</h1>
     <p>Take a deep dive of how we work, and how can you bring an impact for the society!</p>
-    <button class="button-accent">Join Us Now!<Icon icon="material-symbols:arrow-right-alt-rounded" width="24" height="24" /></button>
+    <Button type="accent">Join Us Now</Button>
 </section>
