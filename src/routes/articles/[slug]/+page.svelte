@@ -8,40 +8,13 @@
     let article_content={"innerHTML":""};
     article_content.innerHTML = data.blogPost.content;
 
-    let articleSection: HTMLDivElement;
-
-    onMount(() => {
-        const scrollActivity = (e: { deltaY: number; preventDefault: () => void; }) => {
-            const atTop = articleSection.scrollTop === 0;
-            const atBottom = articleSection.scrollTop + articleSection.clientHeight >= articleSection.scrollHeight;
-
-            if ((atTop && e.deltaY < 0) || (atBottom && e.deltaY > 0)) {
-                if (articleSection.parentElement) {
-                    articleSection.parentElement.scrollBy({
-                        top: e.deltaY,
-                        behavior: 'auto'
-                    });
-                }
-
-                e.preventDefault();
-            }
-        };
-        articleSection.addEventListener("wheel", scrollActivity, {passive:false});
-    return()=>{
-        articleSection.removeEventListener("wheel", scrollActivity);
-    };
-    });
-
-    
-
-
-
 </script>
 
 
 <section class="p-8 mobile:p-16 items-center text-center mobile:text-left">
 	<p class="text-lg uppercase tracking-widest">{data.blogPost.title}</p>
-    <h1 class="!text-4xl mobile:!text-6xl w-full leading-none mobile:leading-20 tracking-wide">{data.blogPost.title}</h1>    
+    <h1 class="!text-4xl mobile:!text-6xl w-full leading-none mobile:leading-20 tracking-wide">{data.blogPost.title}</h1>
+    <span class="uppercase tracking-wider text-primary-text">Reading time: 3 mins</span>    
 </section>  
 <section class="p-8 mobile:p-16 text-center mobile:text-left w-full h-auto flex flex-row items-center">
     <div class={`hidden tablet:block featured-article relative w-full tablet:w-3/4 h-auto aspect-video bg-cover m-auto rounded-xl`}>
@@ -68,17 +41,8 @@
     </div>
 </section>
 
-<section class="p-8 mobile:p-16 text-center mobile:text-left w-full h-screen flex flex-col md:flex-row items-start overflow-scroll">
-    <div class="flex flex-col w-full w-md gap-4 text-white items-start h-content sticky top-5 mx-2">
-        <span class="uppercase tracking-wider">Reading time: 3 mins</span>
-        <div class="w-full">
-            <div class="flex hover:bg-primary/10 rounded-lg py-3 px-8 w-full">
-                <span class="flex-grow text-white">Getting Started</span>
-                <Icon icon="ri:arrow-right-s-line" class="text-2xl text-gray-500" />
-            </div>
-        </div>
-    </div>
-    <article bind:this={articleSection} class="flex-grow prose w-full max-w-full overflow-hidden">
+<section class="p-8 mobile:p-16 text-center mobile:text-left w-full flex flex-col md:flex-row items-start">
+    <article class="flex-grow prose prose-invert prose-xl prose-img:self-center w-full max-w-full overflow-hidden">
         {@html data.blogPost.content}
     </article>
 </section>

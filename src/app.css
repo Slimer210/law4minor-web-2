@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
     --font-sans: "Inter", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -525,25 +526,4 @@ p {
 
 .event-card button {
   @apply self-center mobile:self-baseline
-}
-
-article * {
-  @apply mb-5
-}
-
-article p {
-  @apply text-primary font-normal 
-}
-
-article figure img {
-  @apply m-auto max-w-2xl rounded-xl
-}
-
-article figure figcaption {
-  @apply text-center italic my-2
-}
-
-
-article h2 {
-  @apply sticky top-20
 }

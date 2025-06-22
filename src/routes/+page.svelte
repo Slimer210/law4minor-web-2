@@ -12,7 +12,10 @@
     import Button from "$lib/components/element/button.svelte";
     import HeroContainer from "$lib/components/hero/HeroContainer.svelte";
     import HeroContent from "$lib/components/hero/HeroContent.svelte";
-    import { HeroButton, HeroTitle } from "$lib/components/hero";
+    import { 
+        HeroButton, 
+        HeroTitle 
+    } from "$lib/components/hero";
 
     const demoBlog = [
         {

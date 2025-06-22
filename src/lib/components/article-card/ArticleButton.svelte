@@ -1,5 +1,4 @@
 <script>
-    import Icon from '@iconify/svelte';
     import Button from '$lib/components/element/button.svelte';
 
     export let href = '';
