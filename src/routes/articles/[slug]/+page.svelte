@@ -12,7 +12,7 @@
 
 
 <section class="p-8 mobile:p-16 items-center text-center mobile:text-left">
-	<p class="text-lg uppercase tracking-widest">{data.blogPost.title}</p>
+	<p class="text-lg uppercase tracking-widest">{data.blogPost.category}</p>
     <h1 class="!text-4xl mobile:!text-6xl w-full leading-none mobile:leading-20 tracking-wide">{data.blogPost.title}</h1>
     <span class="uppercase tracking-wider text-primary-text">Reading time: 3 mins</span>    
 </section>  
@@ -33,7 +33,9 @@
                 </div>
                 <div>
                     <span class="uppercase">Tags</span>
-                    <p>Burger Size, Law, Sue</p>
+                    <p>{(data.blogPost.tags).map((tag: string)=>{
+                        return `${tag}`;
+                    })}</p>
                 </div>
             </div>
         </div>

@@ -18,11 +18,11 @@
 {#if type === 'accent'}
   <a class="bg-primary text-black font-medium px-6 py-3 border-1 rounded-full w-fit hover:bg-primary-text uppercase tracking-wider duration-200 cursor-pointer flex flex-row items-center gap-4 {className}" href={href} {...props}>
     <slot />
-    <Icon icon={icon} width="24" height="24" />
+    <Icon icon={icon} width="24" height="24" class="text-black" />
   </a>
 {:else}
   <a class="bg-black text-primary font-medium px-6 py-3 border-1 rounded-full w-fit hover:bg-primary hover:text-black uppercase tracking-wider duration-200 cursor-pointer flex flex-row items-center gap-4 {className}" href={href} {...props}>
     <slot />
-    <Icon icon={icon} width="24" height="24" />
+    <Icon icon={icon} width="24" height="24"/>
   </a>
 {/if}

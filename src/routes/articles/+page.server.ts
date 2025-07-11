@@ -10,6 +10,7 @@ export const load = async () => {
 		demoBlog = data.map((post: any) => ({
 			title: post.title?.rendered ?? 'Untitled',
 			date_published: post.date?.slice(0, 10) ?? 'Unknown date',
+			category: post._embedded?.['wp:term']?.[0]?.[0]?.name ?? 'Uncategorized',
 			author: {
 				name: post._embedded?.author?.[0]?.name ?? 'Unknown',
 				profile_link: post._embedded?.author?.[0]?.link ?? '#',

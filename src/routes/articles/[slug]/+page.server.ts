@@ -15,6 +15,8 @@ export const load: PageServerLoad = async ({ params }) => {
 
 	const blogPost = {
 		title: post.title?.rendered ?? 'Untitled',
+		category: post._embedded?.['wp:term']?.[0]?.[0]?.name ?? 'Uncategorized',
+		tags: post._embedded?.['wp:term']?.[1]?.map((tag: { name: string }) => tag.name) ?? [],
 		date_published: post.date?.slice(0, 10) ?? 'Unknown date',
 		author: {
 			name: post._embedded?.author?.[0]?.name ?? 'Unknown',
